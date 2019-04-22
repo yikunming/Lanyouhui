@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+
+    tools:context="com.example.lanyouhui.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FF6633">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:text="篮友汇"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/searchview_line"
+                android:iconifiedByDefault="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1100dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.ashokvarma.bottomnavigation.BottomNavigationBar
+                android:id="@+id/bottom_nav_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+            </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="430dp"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#fddd">
+
+                    <TableRow>
+
+                        <ImageView
+                            android:id="@+id/image_index"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:src="@drawable/lizi" />
+
+                        <ImageView
+                            android:id="@+id/image_find"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:src="@drawable/lizi" />
+
+                        <ImageView
+                            android:id="@+id/image_information"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:src="@drawable/lizi" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/index"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="首页" />
+
+                        <TextView
+                            android:id="@+id/find"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="发现" />
+
+                        <TextView
+                            android:id="@+id/information"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="我" />
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

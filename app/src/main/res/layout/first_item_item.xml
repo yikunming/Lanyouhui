@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="0.6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="莱昂纳德21分 欧文仅7分 绿军早猛龙吊打惨遭三连败"
+                    android:textColor="#000"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/root"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:text="OnFire"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <ImageView
+                        android:id="@+id/comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:src="@drawable/lizi" />
+
+                    <TextView
+                        android:id="@+id/comment_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:text="10"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <ImageView
+                        android:id="@+id/collect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:src="@drawable/lizi" />
+
+                    <TextView
+                        android:id="@+id/collect_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.01"
+                        android:text="3"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <ImageView
+                        android:id="@+id/unlike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@drawable/lizi"
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4">
+
+                <ImageView
+                    android:id="@+id/fimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:src="@drawable/bg_first" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="20dp"
+                android:background="#e9e9e3" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

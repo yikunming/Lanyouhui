@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/lizi" />
+
+                <TextView
+                    android:id="@+id/t_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="详  情"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/lizi" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="37岁传奇球星1秒绝杀勇士，跳上看台怒吼致敬詹姆斯，库里致敬他"
+                    android:textColor="#000"
+                    android:textSize="24dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/x_toot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="毛罗聊球"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/x_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="13dp"
+                        android:text="2小时前"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#D6D6D6">
+
+                </View>
+
+                <ImageView
+                    android:id="@+id/x_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/bg_first" />
+
+                <TextView
+                    android:id="@+id/x_word"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/x_shuohua"
+                    android:textColor="#000" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/x_good"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/lizi" />
+
+                    <ImageView
+                        android:id="@+id/x_bad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/lizi" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lizi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:text="精彩评论"
+                        android:textColor="#000"
+                        android:textSize="13dp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#D6D6D6">
+
+                </View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <com.example.lanyouhui.ListViewForScrollView
+                        android:id="@+id/comment_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </com.example.lanyouhui.ListViewForScrollView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
