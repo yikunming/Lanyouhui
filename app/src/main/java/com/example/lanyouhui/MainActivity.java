@@ -1,10 +1,13 @@
 package com.example.lanyouhui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -25,12 +28,28 @@ public class MainActivity extends AppCompatActivity implements
     private ForthFragment forthFragment;
     private MyAdapter myAdapter;
     private MyStateAdapter myStateAdapter;
+
+    private ImageView imageView;
+
     private List<Fragment> fragmentList = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imageView=findViewById(R.id.image_find);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(MainActivity.this,FindActivity.class);
+                startActivity(intent);
+            }
+        });
+
         initBottom();
         initViewPager();
     }

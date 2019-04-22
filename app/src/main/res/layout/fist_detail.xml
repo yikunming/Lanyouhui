@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
@@ -23,7 +26,7 @@
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/lizi" />
+                    android:src="@drawable/back" />
 
                 <TextView
                     android:id="@+id/t_detail"
@@ -113,15 +116,17 @@
                         android:id="@+id/x_good"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="right"
                         android:layout_weight="1"
-                        android:src="@drawable/lizi" />
-
-                    <ImageView
-                        android:id="@+id/x_bad"
+                        android:src="@drawable/like" />
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/lizi" />
+                        android:text="15"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:textColor="#000"
+                        android:layout_weight="1"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -132,7 +137,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/lizi" />
+                        android:src="@drawable/comment" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,9 +170,38 @@
                         android:layout_height="wrap_content">
 
                     </com.example.lanyouhui.ListViewForScrollView>
+
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="#D3D3D3">
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:hint="说点什么..."
+        android:textSize="15dp"
+        android:textColorHint="#000"
+        android:layout_weight="1"
+
+        />
+    <ImageView
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/send"
+        android:layout_gravity="center"/>
+    </LinearLayout>
+</RelativeLayout>

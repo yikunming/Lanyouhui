@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="篮友汇"
                 android:textColor="#ffffff"
@@ -81,19 +81,19 @@
                             android:id="@+id/image_index"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:src="@drawable/lizi" />
+                            android:src="@drawable/index" />
 
                         <ImageView
                             android:id="@+id/image_find"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:src="@drawable/lizi" />
+                            android:src="@drawable/find" />
 
                         <ImageView
                             android:id="@+id/image_information"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:src="@drawable/lizi" />
+                            android:src="@drawable/people" />
                     </TableRow>
 
                     <TableRow>

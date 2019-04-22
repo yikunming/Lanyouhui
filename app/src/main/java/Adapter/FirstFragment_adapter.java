@@ -57,14 +57,14 @@ public class FirstFragment_adapter extends BaseAdapter{
         TextView root=convertView.findViewById(R.id.root);
         ImageView comment_image=convertView.findViewById(R.id.comment);
         TextView comment=convertView.findViewById(R.id.comment_number);
-        ImageView collect_image=convertView.findViewById(R.id.collect);
-        TextView collect=convertView.findViewById(R.id.collect_number);
-        ImageView unlike=convertView.findViewById(R.id.unlike);
+//        ImageView collect_image=convertView.findViewById(R.id.collect);
+//        TextView collect=convertView.findViewById(R.id.collect_number);
+//        ImageView unlike=convertView.findViewById(R.id.unlike);
 
         information.setText(nbamessages.get(position).getMessage());
         root.setText(nbamessages.get(position).getRoot());
         comment.setText(String.valueOf(nbamessages.get(position).getCommentnumber()));
-        collect.setText(String.valueOf(nbamessages.get(position).getCollectnumber()));
+        //collect.setText(String.valueOf(nbamessages.get(position).getCollectnumber()));
         return convertView;
     }
 }

@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:id="@+id/t_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="发  现"
+                    android:textColor="#000"
+                    android:textSize="20dp" />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/lizi" />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/qiaodan"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="“飞人”、“篮球之神”都是他的称号。因为上个世纪90年代是属于他的，他用总冠军，MVP这些荣誉影响了整整一代人，他曾连续三个赛季得到得分王和抢断王，他巨大的影响力延续至今。他拥有惊人的身体素质，是最强的得分手，他在防守端和进攻端做的都十分完美，他是个完美的篮球运动员。每每出现强力的篮球运动员，篮球评论员总会拿乔丹来跟他们做个比较。他可以做的任何事情，至今没有一个人做得比他更好。他的完美要等到后来者来打破。"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bierlasaier"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="他是在球员中拥有最多总冠军戒指的人，因而绰号“指环王”。他在出任中锋期间，凯尔特人在10个赛季中，9次获得总冠军！其中，还有一次八连冠。他也是NBA中最出色的防守型中锋，2017年他荣获首届NBA终身成就奖。虽然大多数球迷，对他知之甚少，但是多少都了解他“指环王”身份。"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/zhanmusi"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2003年成为最年轻选秀状元。达成NBA最年轻的记录多达40多项，七进总决赛可能是现任球员中最多的。他强壮的身体，给了他很好的得分机会，历史顶级的突破能力，和篮下终结能力。上篮后有人拉住他，还是依然能把球送进篮筐。他同时也是全能型超级巨星，突破分球、投篮和抢篮板，无所不能。甚至于在今年总决赛，他一下场场上都不怎么得分，可见他能力是有多么强悍。同时，他也最有可能成为超越乔丹的男人。"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/daan"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="艾佛森以NBA状元的身份被76人选中，14年的职业生涯中，获得过众多荣誉，但他的职业生涯中没有夺得过冠军，2016年进入NBA名人堂。身高只有1.83的他，在NBA中是最矮的状元，至今他仍被球迷记住。他单挑乔丹两次将乔丹晃开这一幕，成为了经典。身高只有1.83的他一人独自带队打进NBA总决赛，也让球迷十分佩服。"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/kebi"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="科比于1996年起便效力于洛杉矶湖人队，一直到2015-2016赛季结束，科比正式退役，20年的职业生涯中，5次获得总冠军，2次FMVP，1次常规赛MVP，17次入选全明星阵容，拿下过81分，仅次于张伯伦。科比在NBA的记录多大20多项，90后的我们这些篮球爱好者，也是看着他的比赛长大的，众多球员都很喜欢他，也曾被誉为最接近乔丹的人。"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+                 </LinearLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</RelativeLayout>
+
