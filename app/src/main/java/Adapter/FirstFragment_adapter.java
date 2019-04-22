@@ -19,6 +19,7 @@ import EntityClass.Nbamessage;
 
 /**
  * Created by 易锟铭 on 2019/2/27.
+ *
  */
 
 public class FirstFragment_adapter extends BaseAdapter{

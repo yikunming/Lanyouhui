@@ -1,9 +1,5 @@
 package com.example.lanyouhui;
 
-import android.database.Observable;
-
-import java.util.List;
-
 import EntityClass.News;
 import EntityClass.Result;
 import retrofit2.Call;
