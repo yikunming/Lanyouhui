@@ -27,7 +27,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by 易锟铭 on 2019/1/2.
- *
  */
 
 public class FirstFragment extends Fragment {
