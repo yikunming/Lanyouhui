@@ -1,9 +1,11 @@
 package EntityClass;
 
-
 import java.util.Date;
 
-
+/**
+ * @author wangxian
+ * @date 2019/4/20
+ */
 public class News {
 
     /**
@@ -30,30 +32,6 @@ public class News {
      * 新闻图片3
      */
     private String imgThree;
-
-    public String getImgTwo() {
-        return imgTwo;
-    }
-
-    public void setImgTwo(String imgTwo) {
-        this.imgTwo = imgTwo;
-    }
-
-    public String getImgThree() {
-        return imgThree;
-    }
-
-    public void setImgThree(String imgThree) {
-        this.imgThree = imgThree;
-    }
-
-    public int getType() {
-        return newsType;
-    }
-
-    public void setType(int type) {
-        this.newsType = type;
-    }
 
     /**
      * 新闻来源
@@ -123,6 +101,30 @@ public class News {
         this.content = content;
     }
 
+    public String getImgTwo() {
+        return imgTwo;
+    }
+
+    public void setImgTwo(String imgTwo) {
+        this.imgTwo = imgTwo;
+    }
+
+    public String getImgThree() {
+        return imgThree;
+    }
+
+    public void setImgThree(String imgThree) {
+        this.imgThree = imgThree;
+    }
+
+    public int getNewsType() {
+        return newsType;
+    }
+
+    public void setNewsType(int newsType) {
+        this.newsType = newsType;
+    }
+
     @Override
     public String toString() {
         return "News{" +
@@ -134,7 +136,7 @@ public class News {
                 ", source='" + source + '\'' +
                 ", content='" + content + '\'' +
                 ", time=" + time +
-                ", type=" + newsType +
+                ", newsType=" + newsType +
                 '}';
     }
 }

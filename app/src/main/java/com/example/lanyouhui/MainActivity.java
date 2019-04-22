@@ -17,6 +17,9 @@ import java.util.List;
 
 import Adapter.MyStateAdapter;
 
+/**
+ * 主页面
+ */
 public class MainActivity extends AppCompatActivity implements
         BottomNavigationBar.OnTabSelectedListener,ViewPager.OnPageChangeListener {
 
