@@ -153,8 +153,10 @@ public class SecondDetailActivity extends AppCompatActivity {
                 news = response.body().getSuccess();
                 title.setText(news.getTitle());
                 source.setText(news.getSource());
+                leiroong.setText(news.getContent());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
                 time.setText(sdf.format(news.getTime()));
+
                 Glide.with(SecondDetailActivity.this).load(ApiUrl.IMAGEBATS + news.getImg()).into(photo);
                 // 步骤7：处理返回的数据结果
                 Log.e("test", "请求成功: " );
