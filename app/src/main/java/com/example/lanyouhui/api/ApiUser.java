@@ -4,17 +4,17 @@ import EntityClass.News;
 import EntityClass.PostResult;
 import EntityClass.Result;
 import EntityClass.ResultDetail;
+import EntityClass.UserInfo;
 import EntityClass.UserLogin;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiUser {
-
-
 
     /**
      * 登录
@@ -29,4 +29,14 @@ public interface ApiUser {
     @Headers("Content-Type:application/json;charset=utf-8")
     @POST("mybasketball//user/register")
     Call<PostResult> registerUserInfo(@Body UserLogin userLogin);
+
+    /**
+     * 查看用户信息
+     * @param userPhone
+     * @return
+     */
+    @Headers("Content-Type:application/json;charset=utf-8")
+    @GET("mybasketball//user/getuserbyphone")
+    Call<ResultDetail<UserInfo>> getUserInfo(@Query("userPhone")String userPhone);
+
 }
