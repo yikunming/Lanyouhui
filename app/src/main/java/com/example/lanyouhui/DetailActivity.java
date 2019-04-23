@@ -1,5 +1,6 @@
 package com.example.lanyouhui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -54,6 +55,7 @@ public class DetailActivity extends AppCompatActivity {
     private ImageView imageView;
     private String content;
     private int newsId;
+    private ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +69,23 @@ public class DetailActivity extends AppCompatActivity {
         photo=(ImageView)findViewById(R.id.x_photo);
         leiroong=(TextView) findViewById(R.id.x_word);
 
+        back=(ImageView)findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent ( DetailActivity.this,FirstFragment.class) ;
+                startActivity(intent);
+
+            }
+        });
+
          editText=(EditText)findViewById(R.id.edittext);
          imageView=(ImageView)findViewById(R.id.send);
+
+
+
+
 
          newsId = getIntent().getExtras().getInt("id");
 
