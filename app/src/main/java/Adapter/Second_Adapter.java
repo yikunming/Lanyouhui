@@ -90,6 +90,7 @@ public class Second_Adapter extends RecyclerView.Adapter<Second_Adapter.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, SecondDetailActivity.class);
+                intent.putExtra("id",news.get(position).getId());
                 context.startActivity(intent);
             }
         });

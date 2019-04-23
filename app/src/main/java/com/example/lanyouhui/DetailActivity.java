@@ -2,21 +2,22 @@ package com.example.lanyouhui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
-import android.widget.BaseAdapter;
+import android.util.Log;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.lanyouhui.uitl.ApiUrl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import Adapter.FistDetailAdapter;
-import EntityClass.IndexComment;
+import EntityClass.Comment;
 import EntityClass.News;
 import EntityClass.Result;
+import EntityClass.ResultDetail;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,8 +32,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DetailActivity extends AppCompatActivity {
     private ListViewForScrollView listViewForScrollView;
-    private List<IndexComment>indexCommentList=new ArrayList<>();
-    private List<News>news=new ArrayList<>();
+    private List<Comment>comments=new ArrayList<>();
+    private News news=new News();
     private FistDetailAdapter fistDetailAdapter;
 
     //详情页的绑定
@@ -55,29 +56,76 @@ public class DetailActivity extends AppCompatActivity {
         photo=(ImageView)findViewById(R.id.x_photo);
         leiroong=(TextView) findViewById(R.id.x_word);
 
+
+        listViewForScrollView=(ListViewForScrollView)findViewById(R.id.comment_list);
         //邦定数据
-
-
 
         //获取详情页信息；
          getdetail();
 
+         //获取评论信息
+         getcommnt();
+
+//
+//       for (int i=0;i<=5;i++){
+//           IndexComment indexComment=new IndexComment();
+//           indexComment.setId("阿迪达斯");
+//           indexComment.setTime("1小时前");
+//           indexComment.setCommentcontent("詹姆斯我爱你");
+//
+//           indexCommentList.add(indexComment);
+//
+//       }
+
+//        fistDetailAdapter=new FistDetailAdapter(DetailActivity.this,comments);
+        //listViewForScrollView.setAdapter(fistDetailAdapter);
+
+    }
+
+    private void getcommnt() {
+           Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ApiUrl.APIBAST) // 设置 网络请求 Url
+                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+//                .addConverterFactory(new Retrofit2ConverterFactory())
+                .build();
+        // 步骤5:创建 网络请求接口 的实例
+        CommentApi request = retrofit.create(CommentApi.class);
+        //对 发送请求 进行封装
+        Call<Result<Comment>> call = request.getCommentList(getIntent().getExtras().getInt("id"));
+
+        //步骤6:发送网络请求(异步)
+        call.enqueue(new Callback<Result<Comment>>() {
+
+            //请求成功时回调
+            @Override
+            public void onResponse(Call<Result<Comment>> call, Response<Result<Comment>> response) {
 
 
-       listViewForScrollView=(ListViewForScrollView)findViewById(R.id.comment_list);
+                  if(response.isSuccessful())
+                  {
+                      comments = response.body().getSuccess();
+                      fistDetailAdapter=new FistDetailAdapter(DetailActivity.this,comments);
+                      listViewForScrollView.setAdapter(fistDetailAdapter);
 
-       for (int i=0;i<=5;i++){
-           IndexComment indexComment=new IndexComment();
-           indexComment.setId("阿迪达斯");
-           indexComment.setTime("1小时前");
-           indexComment.setCommentcontent("詹姆斯我爱你");
+                      for (int i=0;i<comments.size();i++){
+                          Log.e("test comments",comments.toString());
+                      }
+                  }
 
-           indexCommentList.add(indexComment);
+                // 步骤7：处理返回的数据结果
+                Log.e("test", "请求成功: " );
 
-       }
+            }
 
-        fistDetailAdapter=new FistDetailAdapter(DetailActivity.this,indexCommentList);
-        listViewForScrollView.setAdapter(fistDetailAdapter);
+            //请求失败时回调
+            @Override
+            public void onFailure(Call<Result<Comment>> call, Throwable t) {
+
+            }
+
+
+
+        });
 
     }
 
@@ -90,30 +138,60 @@ public class DetailActivity extends AppCompatActivity {
 //
 //        NewsApi request=retrofit.create(NewsApi.class);
 //
+//        Call<ResultDetail<News>> call =  request.getNewsDetail(getIntent().getExtras().getInt("id"));
+//        Log.e("test", "getdetail: "+getIntent().getExtras().getInt("id") );
 //
-//
-//
-//        Call<Result<News>> call = null;
-//          if (call==request.getCall(0)){
-//              call.enqueue(new Callback<Result<News>>() {
+//              call.enqueue(new Callback<ResultDetail<News>>() {
 //                  @Override
-//                  public void onResponse(Call<Result<News>> call, Response<Result<News>> response) {
+//                  public void onResponse(Call<ResultDetail<News>> call, Response<ResultDetail<News>> response) {
 //
-//
-//
-//                      news = response.body().getSuccess();
+//                      title.setText(news.getTitle());
+//                      source.setText(news.getSource());
+//                      time.setText((CharSequence) news.getTime());
+//                      Glide.with(DetailActivity.this).load(ApiUrl.IMAGEBATS + news.getImg()).into(photo);
 //
 //                  }
 //
 //                  @Override
-//                  public void onFailure(Call<Result<News>> call, Throwable t) {
-//
+//                  public void onFailure(Call<ResultDetail<News>> call, Throwable t) {
+//                      Log.e("test", "onFailure: "+ "请求失败" );
 //                  }
 //              });
-//          }
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ApiUrl.APIBAST) // 设置 网络请求 Url
+                .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
+//                .addConverterFactory(new Retrofit2ConverterFactory())
+                .build();
+        // 步骤5:创建 网络请求接口 的实例
+        NewsApi request = retrofit.create(NewsApi.class);
+        //对 发送请求 进行封装
+        Call<ResultDetail<News>> call = request.getNewsDetail(getIntent().getExtras().getInt("id"));
+
+        //步骤6:发送网络请求(异步)
+        call.enqueue(new Callback<ResultDetail<News>>() {
+            //请求成功时回调
+            @Override
+            public void onResponse(Call<ResultDetail<News>> call, Response<ResultDetail<News>> response) {
+                news = response.body().getSuccess();
+                     title.setText(news.getTitle());
+                      source.setText(news.getSource());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+                      time.setText(sdf.format(news.getTime()));
+                      Glide.with(DetailActivity.this).load(ApiUrl.IMAGEBATS + news.getImg()).into(photo);
+                // 步骤7：处理返回的数据结果
+                Log.e("test", "请求成功: " );
+
+            }
+            //请求失败时回调
+            @Override
+            public void onFailure(Call<ResultDetail<News>> call, Throwable t) {
+                Log.e("test", "请求失败: " + t.toString() );
+            }
+        });
+          }
 
 
 
 
-    }
+
 }

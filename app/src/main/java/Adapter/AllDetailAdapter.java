@@ -10,21 +10,31 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.lanyouhui.R;
+import com.example.lanyouhui.uitl.ApiUrl;
 //import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import EntityClass.Comment;
 import EntityClass.IndexComment;
 
 public class AllDetailAdapter extends RecyclerView.Adapter<AllDetailAdapter.ViewHolder> {
-    private List<IndexComment>indexComments=new ArrayList<>();
+    private List<Comment>comments=new ArrayList<>();
+    Context context;
+
+    public  AllDetailAdapter( Context context) {
+        this.context=context;
+    }
+
+    public  AllDetailAdapter(List<Comment>comments ){
+        this.comments=comments;
 
 
-    public  AllDetailAdapter(List<IndexComment>indexComments){
-        this.indexComments=indexComments;
 
     }
 
@@ -35,14 +45,15 @@ public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView header ;
         private TextView time;
         private TextView comment;
-        private TextView id;
+        private ImageView id;
 
         public ViewHolder(View v){
             super(v);
-           // header=v.findViewById(R.id.tv_user_nickname);
+
+            header=v.findViewById(R.id.tv_user_nickname);
             time=v.findViewById(R.id.tv_comment_pubdate);
             comment=v.findViewById(R.id.tv_comment_content);
-            id=v.findViewById(R.id.tv_user_nickname);
+            id=v.findViewById(R.id.iv_user_headimg);
         }
 }
 
@@ -59,15 +70,18 @@ public class ViewHolder extends RecyclerView.ViewHolder{
     @Override
     public void onBindViewHolder(@NonNull AllDetailAdapter.ViewHolder holder, int position) {
 
-        holder.id.setText(indexComments.get(position).getHeader());
-        holder.time.setText(indexComments.get(position).getTime());
-        holder.comment.setText(indexComments.get(position).getCommentcontent());
+        Glide.with(context).load(ApiUrl.HEADBATS + comments.get(position).getImg()).into(holder.id);
+        holder.header.setText(comments.get(position).getName());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
+        holder.time.setText(sdf.format(comments.get(position).getCreateDate()));
+        holder.comment.setText(comments.get(position).getReplyMsg());
 
 
     }
 
     @Override
     public int getItemCount() {
-        return indexComments.size();
+        return comments.size();
     }
 }

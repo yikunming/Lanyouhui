@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.lanyouhui.uitl.ApiUrl;
 
@@ -35,23 +38,40 @@ public class FirstFragment extends Fragment {
     private static String TAG = "test";
     public ListView listView;
     public BaseAdapter adapter;
+    private String res;
+    private String content;
+
     private List<News> news = new ArrayList<>();
+    private EditText editText;//评论编辑框
+    private ImageView imageView;//发送评论图标
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.first_item,null);
+
+        editText = (EditText) view.findViewById(R.id.edittext);
+        imageView=(ImageView) view.findViewById(R.id.send);
+
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final String finalContent = content;
+//                content = editText.getText().toString();
+//
+//
+//            }
+//        });
+
         request();
         listView =(ListView)view.findViewById(R.id.nba_listview);//获取list view控件
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(getActivity(),DetailActivity.class);
+                intent.putExtra("id",news.get(position).getId());
                 startActivity(intent);
             }
         });
-
         return view;
     }
 
@@ -79,6 +99,7 @@ public class FirstFragment extends Fragment {
                 listView.setAdapter(new FirstFragment_adapter(getActivity(),news));
                 //listView.setAdapter(new FirstFragment_adapter(getActivity(),news));
                 Log.e(TAG, "请求成功: " + news.get(0).getImg());
+
 
             }
             //请求失败时回调
