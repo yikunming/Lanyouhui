@@ -49,11 +49,9 @@ public class PersonalActivity extends AppCompatActivity {
 
 
         back=(ImageView)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(PersonalActivity.this,MainActivity.class);
-            }
+        back.setOnClickListener(v -> {
+//                Intent intent=new Intent(PersonalActivity.this,MainActivity.class);
+            finish();
         });
         initView();
         initDate();
@@ -135,8 +133,8 @@ public class PersonalActivity extends AppCompatActivity {
         pcdSetting.setOnClickListener(v -> {
             Intent intent = new Intent(PersonalActivity.this, SettingUserActivity.class);
             intent.putExtra("area",userInfo.getArea());
-            intent.putExtra("bir",userInfo.getBirthday());
-            intent.putExtra("gen",personalGender.getText());
+            intent.putExtra("bir",personalBir.getText().toString());
+            intent.putExtra("gen",userInfo.getGender());
             intent.putExtra("name",userInfo.getName());
             intent.putExtra("intro",userInfo.getIntroduction());
             startActivity(intent);

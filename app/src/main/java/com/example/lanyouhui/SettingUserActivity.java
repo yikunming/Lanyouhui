@@ -21,6 +21,7 @@ import com.example.lanyouhui.uitl.ApiUrl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import EntityClass.PostResult;
 import EntityClass.UserInfo;
@@ -75,24 +76,26 @@ public class SettingUserActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        // TODO: 2019/4/23 phone问题
         getToken();
-        userInfo.setId(Integer.getInteger(token));
+        userInfo.setPhone("17608029745");
 
         Intent intent = getIntent();
         userInfo.setArea(intent.getStringExtra("area") + "");
         time = intent.getStringExtra("bir");
+        userInfo.setGender(intent.getStringExtra("gen") + "");
         userInfo.setGender(intent.getStringExtra("gen") + "");
         userInfo.setName(intent.getStringExtra("name") + "");
         userInfo.setIntroduction(intent.getStringExtra("intro") + "");
 
         personalArea.setText(userInfo.getArea());
         personalName.setText(userInfo.getName());
-        personalBir.setText(time);
+        personalBir.setText(time.subSequence(3,time.length()));
         personalIntro.setText(userInfo.getIntroduction());
         if (userInfo.getGender().equals("0")) {
-            personalGender.setText("性别:女");
+            personalGender.setText("女");
         } else {
-            personalGender.setText("性别:男");
+            personalGender.setText("男");
         }
     }
 
@@ -102,6 +105,16 @@ public class SettingUserActivity extends AppCompatActivity {
         });
 
         settingBt.setOnClickListener(v -> {
+
+            if(!personalGender.getText().toString().trim().equals("男") && !personalGender.getText().toString().trim().equals("女")){
+                Toast.makeText(SettingUserActivity.this, "请正确填写性别!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (personalGender.getText().equals("男")) {
+                userInfo.setGender("1");
+            }else {
+                userInfo.setGender("0");
+            }
             updateUserInfo();
         });
     }
@@ -111,9 +124,10 @@ public class SettingUserActivity extends AppCompatActivity {
         DatePickerDialog dialog = new DatePickerDialog(SettingUserActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                java.util.Date date =c.getTime();
+                // TODO: 2019/4/23 暂未修改时问题解决
+//                Date date =c.getTime();
+//                userInfo.setBirthday(date);
                 c.set(year, monthOfYear, dayOfMonth);
-                userInfo.setBirthday(date);
                 personalBir.setText(DateFormat.format("yyy.MM.dd", c));
             }
         }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
@@ -122,6 +136,7 @@ public class SettingUserActivity extends AppCompatActivity {
     }
 
     private void updateUserInfo() {
+
         //步骤4:创建Retrofit对象
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiUrl.APIBAST) // 设置 网络请求 Url
@@ -146,6 +161,7 @@ public class SettingUserActivity extends AppCompatActivity {
                         finish();
                     } else {
                         Toast.makeText(SettingUserActivity.this, "修改失败!", Toast.LENGTH_SHORT).show();
+                        Log.e("test", "onResponse: " + response.body().getErrMsg() );
                     }
 
                 }

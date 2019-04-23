@@ -57,11 +57,14 @@ public class SecondDetailActivity extends AppCompatActivity {
         time=(TextView)findViewById(R.id.x_time);
         photo=(ImageView)findViewById(R.id.x_photo);
         leiroong=(TextView) findViewById(R.id.x_word);
+        back=(ImageView) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SecondDetailActivity.this,MainActivity.class);
+//                Intent intent=new Intent(SecondDetailActivity.this,MainActivity.class);
+//                startActivity(intent);
+                finish();
             }
         });
 
