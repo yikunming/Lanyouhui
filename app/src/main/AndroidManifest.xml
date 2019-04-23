@@ -1,45 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lanyouhui"
-    >
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.example.lanyouhui">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".DetailActivity">
-
-
-        </activity>
-        <activity android:name=".SecondDetailActivity">
-
-
-        </activity>
-
-        <activity android:name=".FindActivity">
-
-        </activity>
-
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".SecondDetailActivity"></activity>
+        <activity android:name=".FindActivity"></activity>
         <activity android:name=".PersonalActivity">
-
-        </activity>
-        <activity android:name=".RegisterActivity">
-
-
-        </activity>
-        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".SettingUserActivity">
+
         </activity>
     </application>
 

@@ -1,6 +1,8 @@
 package com.example.lanyouhui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -84,14 +86,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<PostResult> call, Response<PostResult> response) {
                 // 步骤7：处理返回的数据结果：输出翻译的内容
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Log.e(TAG, "onResponse: " + response.body().isSuccess());
-                    if (response.body().isSuccess()){
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        Toast.makeText(LoginActivity.this, "登录成功咯!", Toast.LENGTH_SHORT).show();
-
+                    if (response.body().isSuccess()) {
+                        //储存用户token
+                        myShared(userLogin.getUserPhone());
+                        Intent intent = new Intent(LoginActivity.this, PersonalActivity.class);
+                        Toast.makeText(LoginActivity.this, "登录成功!", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
-                    }else {
+                    } else {
                         Toast.makeText(LoginActivity.this, "账号或密码错误!", Toast.LENGTH_SHORT).show();
                     }
 
@@ -106,6 +109,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    /**
+     * 储存用户token
+     * @param phone
+     */
+    private void myShared(String phone) {
+        SharedPreferences myPreference = getSharedPreferences("userShared", Context.MODE_PRIVATE);
+        //向SharedPreference中写入数据需要使用Editor
+        SharedPreferences.Editor editor = myPreference.edit();
+        //存入键值对数据，注意此处的put[type]("key",value);
+        editor.putString("USER_KEY", phone);
+        //提交保存
+//        editor.apply();
+        editor.commit();
     }
 
 }

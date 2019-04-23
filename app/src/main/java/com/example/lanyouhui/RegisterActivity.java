@@ -1,7 +1,9 @@
 package com.example.lanyouhui;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -102,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity{
                 if (response.isSuccessful()){
                     Log.e("test", "onResponse: " + response.body().isSuccess());
                     if (response.body().isSuccess()){
+                        myShared(userLogin.getUserPhone());
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         Toast.makeText(RegisterActivity.this, "注册成功!", Toast.LENGTH_SHORT).show();
 
@@ -122,5 +125,19 @@ public class RegisterActivity extends AppCompatActivity{
         });
     }
 
+    /**
+     * 储存用户token
+     * @param phone
+     */
+    private void myShared(String phone) {
+        SharedPreferences myPreference = getSharedPreferences("userShared", Context.MODE_PRIVATE);
+        //向SharedPreference中写入数据需要使用Editor
+        SharedPreferences.Editor editor = myPreference.edit();
+        //存入键值对数据，注意此处的put[type]("key",value);
+        editor.putString("USER_KEY", phone);
+        //提交保存
+//        editor.apply();
+        editor.commit();
+    }
 
 }
