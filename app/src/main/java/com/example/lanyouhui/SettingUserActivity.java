@@ -1,15 +1,21 @@
 package com.example.lanyouhui;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.stringtemplate.v4.ST;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import EntityClass.UserInfo;
@@ -28,6 +34,7 @@ public class SettingUserActivity extends AppCompatActivity {
     private LinearLayout pcdSetting;
     private TextView settingBt;
     private UserInfo userInfo = new UserInfo();
+    private String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,34 +62,49 @@ public class SettingUserActivity extends AppCompatActivity {
 
     }
 
-    private void initData(){
+    private void initData() {
         Intent intent = getIntent();
-        userInfo.setArea(intent.getStringExtra("area") +"");
-        try {
-            String time = intent.getStringExtra("bir");
-            @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-            Date utilDate = sdf.parse(time);
-            userInfo.setBirthday(utilDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        userInfo.setGender(intent.getStringExtra("gen") +"");
-        userInfo.setName(intent.getStringExtra("name") +"");
-        userInfo.setIntroduction(intent.getStringExtra("intro") +"");
+        userInfo.setArea(intent.getStringExtra("area") + "");
+        time = intent.getStringExtra("bir");
+        userInfo.setGender(intent.getStringExtra("gen") + "");
+        userInfo.setName(intent.getStringExtra("name") + "");
+        userInfo.setIntroduction(intent.getStringExtra("intro") + "");
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
         personalArea.setText(userInfo.getArea());
         personalName.setText(userInfo.getName());
-        personalBir.setText(simpleDateFormat.format(userInfo.getBirthday()));
+        personalBir.setText(time);
         personalIntro.setText(userInfo.getIntroduction());
-        if (userInfo.getGender().equals("0")){
+        if (userInfo.getGender().equals("0")) {
             personalGender.setText("性别:女");
-        }else {
+        } else {
             personalGender.setText("性别:男");
         }
     }
 
-    private void initEvent(){
+    private void initEvent() {
+        personalLinBir.setOnClickListener(v -> {
+            chooseBir();
+        });
+
+        settingBt.setOnClickListener(v -> {
+            updateUserInfo();
+        });
+    }
+
+    private void chooseBir() {
+        final Calendar c = Calendar.getInstance();
+        DatePickerDialog dialog = new DatePickerDialog(SettingUserActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                c.set(year, monthOfYear, dayOfMonth);
+                personalBir.setText(DateFormat.format("yyy.MM.dd", c));
+            }
+        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+        dialog.show();
+
+    }
+
+    private void updateUserInfo() {
 
     }
 }
