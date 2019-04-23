@@ -61,7 +61,7 @@ public class SecondDetailActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SecondDetailActivity.this,SecondFragment.class);
+                Intent intent=new Intent(SecondDetailActivity.this,MainActivity.class);
             }
         });
 

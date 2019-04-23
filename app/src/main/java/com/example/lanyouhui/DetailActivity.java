@@ -74,7 +74,7 @@ public class DetailActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent ( DetailActivity.this,FirstFragment.class) ;
+                Intent intent=new Intent ( DetailActivity.this,MainActivity.class) ;
                 startActivity(intent);
 
             }
