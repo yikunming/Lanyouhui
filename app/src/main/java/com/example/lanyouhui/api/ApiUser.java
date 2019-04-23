@@ -39,4 +39,13 @@ public interface ApiUser {
     @GET("mybasketball//user/getuserbyphone")
     Call<ResultDetail<UserInfo>> getUserInfo(@Query("userPhone")String userPhone);
 
+    /**
+     * 修改用户信息
+     * @param userInfo
+     * @return
+     */
+    @Headers("Content-Type:application/json;charset=utf-8")
+    @POST("mybasketball//user/modifyuserinfo")
+    Call<PostResult> modifyUserInfo(@Body UserInfo userInfo);
+
 }

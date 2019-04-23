@@ -14,19 +14,27 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name=".DetailActivity"></activity>
         <activity android:name=".SecondDetailActivity"></activity>
         <activity android:name=".FindActivity"></activity>
         <activity android:name=".PersonalActivity">
+
+        </activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SettingUserActivity">
 
         </activity>
