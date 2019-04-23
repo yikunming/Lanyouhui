@@ -1,10 +1,12 @@
 package com.example.lanyouhui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +37,7 @@ public class SecondDetailActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private News news=new News();
     private List<Comment>comments=new ArrayList<>();
+    private   ImageView back;
 
     //详情页的绑定
     private TextView title;
@@ -54,6 +57,13 @@ public class SecondDetailActivity extends AppCompatActivity {
         time=(TextView)findViewById(R.id.x_time);
         photo=(ImageView)findViewById(R.id.x_photo);
         leiroong=(TextView) findViewById(R.id.x_word);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SecondDetailActivity.this,MainActivity.class);
+            }
+        });
 
 //        for (int i=1;i<10;i++){
 //            IndexComment index=new IndexComment();
@@ -143,8 +153,10 @@ public class SecondDetailActivity extends AppCompatActivity {
                 news = response.body().getSuccess();
                 title.setText(news.getTitle());
                 source.setText(news.getSource());
+                leiroong.setText(news.getContent());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm");
                 time.setText(sdf.format(news.getTime()));
+
                 Glide.with(SecondDetailActivity.this).load(ApiUrl.IMAGEBATS + news.getImg()).into(photo);
                 // 步骤7：处理返回的数据结果
                 Log.e("test", "请求成功: " );
