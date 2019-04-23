@@ -1,5 +1,8 @@
 package com.example.lanyouhui.uitl;
 
+/**
+ *
+ */
 public class ApiUrl  {
 
     public static String APIBAST = "http://192.168.1.161:8082/";
