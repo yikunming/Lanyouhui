@@ -14,11 +14,7 @@ import retrofit2.http.Query;
 
 public interface ApiUser {
 
-    /****新闻推荐****/
 
-    @Headers("Content-Type:application/json;charset=utf-8")
-    @POST("mybasketball//news/listnews")
-    Call<Result<UserLogin>> getCall(@Query("newsType")Integer type);
 
     /**
      * 登录

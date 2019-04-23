@@ -79,7 +79,6 @@ public class Second_Adapter extends RecyclerView.Adapter<Second_Adapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.txtHeader.setText(news.get(position).getTitle());
-
         holder.root.setText(news.get(position).getSource());
         Glide.with(context).load(ApiUrl.IMAGEBATS + news.get(position).getImg()).into(holder.show_1);
         Glide.with(context).load(ApiUrl.IMAGEBATS + news.get(position).getImgTwo()).into(holder.show_2);
