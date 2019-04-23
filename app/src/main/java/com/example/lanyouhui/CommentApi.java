@@ -1,8 +1,11 @@
 package com.example.lanyouhui;
 
 import EntityClass.Comment;
+import EntityClass.PostResult;
 import EntityClass.Result;
+import EntityClass.UserLogin;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -17,8 +20,9 @@ public interface CommentApi {
 
     /******评论******/
 
-//    @Headers("Content-Type:application/json;charset=utf-8")
-//    @POST("mybasketball//comment/insertcommentlist")
+    @Headers("Content-Type:application/json;charset=utf-8")
+    @POST("mybasketball//comment/insertcommentlist")
+    Call<PostResult> commentlist(@Body Comment comment);
 
 
 
