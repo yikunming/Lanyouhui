@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
+import com.example.lanyouhui.uitl.ApiUrl;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,24 +35,14 @@ public class FirstFragment extends Fragment {
     private static String TAG = "test";
     public ListView listView;
     public BaseAdapter adapter;
-    private List<Nbamessage>nbamessages=new ArrayList<>();
+    private List<News> news = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.first_item,null);
-
+        request();
         listView =(ListView)view.findViewById(R.id.nba_listview);//获取list view控件
-        for (int i=0;i<10;i++){
-            Nbamessage nba=new Nbamessage();
-            nba.setMessage("莱昂纳德21分 欧文仅7分 绿军早猛龙吊打惨遭三连败");
-            nba.setRoot("OnFire");
-            //nba.setCommentimage();
-            nba.setCommentnumber(20);
-            nba.setCollectnumber(30);
-            nbamessages.add(nba);
-            //adapter= new FirstFragment_adapter(FirstFragment.this,nbamessages);
-            listView.setAdapter(new FirstFragment_adapter(getActivity(),nbamessages));
-        }
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -59,7 +51,7 @@ public class FirstFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        request();
+
         return view;
     }
 
@@ -67,14 +59,13 @@ public class FirstFragment extends Fragment {
 
         //步骤4:创建Retrofit对象
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.17.191.121:8082/") // 设置 网络请求 Url
+                .baseUrl(ApiUrl.APIBAST) // 设置 网络请求 Url
                 .addConverterFactory(GsonConverterFactory.create()) //设置使用Gson解析(记得加入依赖)
 //                .addConverterFactory(new Retrofit2ConverterFactory())
                 .build();
 
         // 步骤5:创建 网络请求接口 的实例
         NewsApi request = retrofit.create(NewsApi.class);
-
         //对 发送请求 进行封装
         Call<Result<News>> call = request.getCall(0);
 
@@ -84,7 +75,11 @@ public class FirstFragment extends Fragment {
             @Override
             public void onResponse(Call<Result<News>> call, Response<Result<News>> response) {
                 // 步骤7：处理返回的数据结果
-                Log.e(TAG, "请求成功: " + response.body().getSuccess().get(0).getImg());
+                news = response.body().getSuccess();
+                listView.setAdapter(new FirstFragment_adapter(getActivity(),news));
+                //listView.setAdapter(new FirstFragment_adapter(getActivity(),news));
+                Log.e(TAG, "请求成功: " + news.get(0).getImg());
+
             }
             //请求失败时回调
             @Override

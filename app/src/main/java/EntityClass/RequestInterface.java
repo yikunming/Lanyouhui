@@ -17,5 +17,13 @@ public interface RequestInterface {
     @GET("mybasketball//news/listnews")
     Call<List<News>> getT(@Query( "newsType")int type);
 
+    /**** 视频*****/
+
+    @Headers("Content-Type:application/json;charset=utf-8")
+    @GET("mybasketball//video/listvideo")
+    Call<List<Video>>get(@Query("videoType")int type);
+
+
+
 
 }

@@ -5,16 +5,19 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.lanyouhui.R;
 import com.example.lanyouhui.SecondDetailActivity;
 import com.example.lanyouhui.SecondFragment;
 import com.example.lanyouhui.ThirdFragment;
+import com.example.lanyouhui.uitl.ApiUrl;
 //import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -22,14 +25,15 @@ import java.util.List;
 
 import EntityClass.Nbamessage;
 import EntityClass.Nbamessages;
+import EntityClass.News;
 
 public class Second_Adapter extends RecyclerView.Adapter<Second_Adapter.ViewHolder> {
-   private List<Nbamessages>nbamessages=new ArrayList<>();
+   private List<News>news=new ArrayList<>();
    Context context;
 
 
-    public Second_Adapter(List<Nbamessages>nbamessages,Context context){
-        this.nbamessages=nbamessages;
+    public Second_Adapter(List<News>news,Context context){
+        this.news=news;
         this.context=context;
 
 
@@ -74,9 +78,13 @@ public class Second_Adapter extends RecyclerView.Adapter<Second_Adapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.txtHeader.setText(nbamessages.get(position).getMessage());
-        //holder.show_1.setImageResource(nbamessages.get(position).getShow_1());
-        holder.root.setText(nbamessages.get(position).getRoot());
+        holder.txtHeader.setText(news.get(position).getTitle());
+
+        holder.root.setText(news.get(position).getSource());
+        Glide.with(context).load(ApiUrl.IMAGEBATS + news.get(position).getImg()).into(holder.show_1);
+        Glide.with(context).load(ApiUrl.IMAGEBATS + news.get(position).getImgTwo()).into(holder.show_2);
+        Glide.with(context).load(ApiUrl.IMAGEBATS + news.get(position).getImgThree()).into(holder.show_3);
+        Log.e("img", "onBindViewHolder: " + ApiUrl.IMAGEBATS + news.get(position).getImgThree() );
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +98,7 @@ public class Second_Adapter extends RecyclerView.Adapter<Second_Adapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return nbamessages.size();
+        return news.size();
     }
 
 }

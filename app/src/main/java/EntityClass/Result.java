@@ -14,4 +14,6 @@ public class Result<T> {
     public void setSuccess(ArrayList<T> success) {
         this.success = success;
     }
+
+
 }

@@ -54,7 +54,12 @@ public class ForthFragment extends Fragment {
         @NonNull
         @Override
         public VideoFg_ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+
             return new VideoFg_ViewHolder(LayoutInflater.from(getActivity()).inflate(R.layout.fragment_video_item, viewGroup, false));
+
+
+
         }
 
         @Override

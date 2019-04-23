@@ -20,7 +20,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/lizi"
+            android:src="@drawable/ic_icon_avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,11 +43,12 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="13dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="4个小时前    来自iPhone客户端"
             android:textSize="12sp"
+            android:textColor="#000"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toStartOf="@+id/textView3"
             app:layout_constraintHorizontal_bias="0.127"
@@ -110,7 +111,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/lizi" />
+             />
 
         <TextView
             android:id="@+id/textView5"
@@ -146,7 +147,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/lizi" />
+             />
 
         <TextView
             android:id="@+id/textView6"
@@ -168,7 +169,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toTopOf="@+id/guideline3"
-            app:srcCompat="@drawable/lizi" />
+            />
 
         <TextView
             android:id="@+id/textView7"

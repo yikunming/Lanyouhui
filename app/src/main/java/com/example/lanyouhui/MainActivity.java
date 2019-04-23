@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private ImageView imageView;
 
+    private ImageView imageView2;
+
     private List<Fragment> fragmentList = new ArrayList<>();
 
 
@@ -45,10 +47,20 @@ public class MainActivity extends AppCompatActivity implements
 
         imageView=findViewById(R.id.image_find);
 
+        imageView2=findViewById(R.id.image_information);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(MainActivity.this,FindActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(MainActivity.this,PersonalActivity.class);
                 startActivity(intent);
             }
         });

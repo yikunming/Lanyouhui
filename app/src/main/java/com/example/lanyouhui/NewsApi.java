@@ -9,6 +9,8 @@ import retrofit2.http.Query;
 
 public interface NewsApi {
 
+    /****新闻推荐****/
+
     @Headers("Content-Type:application/json;charset=utf-8")
     @GET("mybasketball//news/listnews")
     Call<Result<News>> getCall(@Query("newsType")Integer type);
