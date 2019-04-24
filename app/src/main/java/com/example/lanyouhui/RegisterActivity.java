@@ -105,8 +105,8 @@ public class RegisterActivity extends AppCompatActivity{
                     Log.e("test", "onResponse: " + response.body().isSuccess());
                     if (response.body().isSuccess()){
                         myShared(userLogin.getUserPhone());
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                        Toast.makeText(RegisterActivity.this, "注册成功!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        Toast.makeText(RegisterActivity.this, "请登录,注册成功!", Toast.LENGTH_SHORT).show();
 
                         startActivity(intent);
                     }else {

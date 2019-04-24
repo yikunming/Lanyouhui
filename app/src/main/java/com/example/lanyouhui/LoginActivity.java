@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.body().isSuccess()) {
                         //储存用户token
                         myShared(userLogin.getUserPhone());
-                        Intent intent = new Intent(LoginActivity.this, PersonalActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         Toast.makeText(LoginActivity.this, "登录成功!", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     } else {
